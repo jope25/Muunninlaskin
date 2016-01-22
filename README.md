@@ -1,3 +1,1 @@
 # loistavaLaskin
-
-Terve!
