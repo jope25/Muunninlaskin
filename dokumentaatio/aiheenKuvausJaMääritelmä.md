@@ -5,8 +5,8 @@
 **Käyttäjät:** Kuka vain
 
 **Käyttäjien toiminnot:** 
-* syöttää luvun 
-* valitsee haluamansa toiminnon, joihin kuuluu:  
+* luvun syöttäminen
+* Haluamansa toiminnon valitseminen. Niihin kuuluu:  
   * perustoiminnot  
   * vaativammat laskutoimitukset    
     * potenssit    
@@ -16,4 +16,5 @@
     * yksikkömuunnin    
     * valuuttamuunnin    
     * jne.
-* valitsee nollaakko tuloksen vai jatkaako siitä laskemista
+* laskutoimituksen laskeminen
+* tuloksen nollaus
