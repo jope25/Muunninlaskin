@@ -18,3 +18,7 @@
     * jne.
 * laskutoimituksen laskeminen
 * tuloksen nollaus
+
+##Määrittelyvaiheen luokkakaavio
+
+Tulossa (en saanut hommaa toimimaan kotona)
