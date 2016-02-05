@@ -21,4 +21,4 @@
 
 ##Määrittelyvaiheen luokkakaavio
 
-Tulossa (en saanut hommaa toimimaan kotona)
+![Alt text](/home/jope/loistavaLaskin/doumentaatio/MäärittelyvaiheenLuokkakaavio.jpg)
