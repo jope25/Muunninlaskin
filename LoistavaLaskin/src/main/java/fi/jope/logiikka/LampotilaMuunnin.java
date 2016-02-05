@@ -14,7 +14,7 @@ public class LampotilaMuunnin implements Toiminto {
         if (suunta == 1) {
             lampotila *= 1.8;
             lampotila += 32;
-        } else if (suunta == -1) {
+        } else {
             lampotila -= 32;
             lampotila /= 1.8;
         }
@@ -23,7 +23,7 @@ public class LampotilaMuunnin implements Toiminto {
     public void celsiusKelvin(int suunta) {
         if (suunta == 1) {
             lampotila += 273.15;
-        } else if (suunta == -1) {
+        } else {
             lampotila -= 273.15;
         }
     }
@@ -32,9 +32,9 @@ public class LampotilaMuunnin implements Toiminto {
         if (suunta == 1) {
             celsiusKelvin(-1);
             celsiusFahrenheit(1);
-        } else if (suunta == -1) {
+        } else {
             celsiusFahrenheit(-1);
-            celsiusKelvin(-1);
+            celsiusKelvin(1);
         }
     }
 

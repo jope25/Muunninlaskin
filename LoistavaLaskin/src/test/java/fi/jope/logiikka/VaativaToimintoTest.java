@@ -48,7 +48,7 @@ public class VaativaToimintoTest {
     }
 
     @Test
-    public void potenssiEiToimiVirheellisillaArvoilla() {
+    public void potenssiVirheellisetArvot() {
         nolla.potenssi(0);
         nolla.potenssi(-1);
 
@@ -56,7 +56,7 @@ public class VaativaToimintoTest {
     }
 
     @Test
-    public void juuriEiToimiVirheellisillaArvoilla() {
+    public void juuriVirheellisetArvot() {
         nolla.juuri(0);
         nolla.juuri(-1);
         nolla.juuri(3);
@@ -69,7 +69,7 @@ public class VaativaToimintoTest {
     }
 
     @Test
-    public void logaritmiEiToimiVirheellisillaArvoilla() {
+    public void logaritmiVirheellisetArvot() {
         VaativaToiminto kaksi = new VaativaToiminto(2);
 
         nolla.logaritmi(10);
@@ -80,6 +80,28 @@ public class VaativaToimintoTest {
         assertEquals(0, nolla.getArvo(), 0);
         assertEquals(-3, miinus.getArvo(), 0);
         assertEquals(2, kaksi.getArvo(), 0);
+        assertEquals(8, vt.getArvo(), 0);
+    }
+    
+    @Test
+    public void binomikerroinToimii() {
+        vt.binomikerroin(vt.getArvo(), 3);
+        assertEquals(56, vt.getArvo(), 0);
+        
+        vt.binomikerroin(5, 0);
+        assertEquals(1, vt.getArvo(), 0);
+        
+        vt.binomikerroin(3, 3);
+        assertEquals(1, vt.getArvo(), 0);
+    }
+    
+    @Test
+    public void binomikerroinVirheellisetArvot() {
+        vt.binomikerroin(1.5, 1);
+        vt.binomikerroin(2, 1.5);
+        vt.binomikerroin(-2, 0);
+        vt.binomikerroin(5, -2);
+        
         assertEquals(8, vt.getArvo(), 0);
     }
 }

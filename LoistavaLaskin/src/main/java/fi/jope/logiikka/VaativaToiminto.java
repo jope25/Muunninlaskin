@@ -7,7 +7,7 @@ public class VaativaToiminto implements Toiminto {
     public VaativaToiminto(double arvo) {
         this.arvo = arvo;
     }
-    
+
     public void potenssi(double monesko) {
         if (arvo == 0 && monesko <= 0) {
             return;
@@ -23,12 +23,35 @@ public class VaativaToiminto implements Toiminto {
         }
         arvo = Math.pow(arvo, 1.0 / juuri);
     }
-    
+
     public void logaritmi(int kanta) {
-        if (arvo <= 0 || kanta <= 1) {
+        if (arvo > 0 && kanta > 1) {
+            arvo = Math.log10(arvo) / Math.log10(kanta);
+        }
+    }
+
+    public void binomikerroin(double n, double k) {
+        if (k < 0 || n < 0 || n%1 != 0 || k%1 != 0) {
             return;
         }
-        arvo = Math.log10(arvo) / Math.log10(kanta);
+        if (k == 0 || n == k) {
+            arvo = 1;
+        } else if (k > 0 && n > k) {
+            int a = 1;
+            int b = 1;
+            int c = 1;
+
+            for (int i = 1; i <= n; i++) {
+                a *= i;
+                if (i <= k) {
+                    b *= i;
+                }
+                if (i <= (n-k)) {
+                    c *= i;
+                }
+            }
+            arvo = a/(b*c);
+        }
     }
 
     @Override
