@@ -21,4 +21,4 @@
 
 ##Määrittelyvaiheen luokkakaavio
 
-![Alt text](/home/jope/loistavaLaskin/doumentaatio/MäärittelyvaiheenLuokkakaavio.jpg)
+![Kaavio](/dokumentaatio/MäärittelyvaiheenLuokkakaavio.jpg)
