@@ -21,4 +21,4 @@
 
 ##Määrittelyvaiheen luokkakaavio
 
-![Kaavio](/dokumentaatio/MäärittelyvaiheenLuokkakaavio.jpg)
+![Kaavio](/dokumentaatio/Kaaviot/MäärittelyvaiheenLuokkakaavio.jpg)
