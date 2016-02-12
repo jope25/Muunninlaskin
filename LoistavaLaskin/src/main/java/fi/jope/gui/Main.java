@@ -1,3 +1,7 @@
+/*
+ * Käynnistää ohjelman ja valintaikkunan.
+ */
+
 package fi.jope.gui;
 
 import javax.swing.SwingUtilities;

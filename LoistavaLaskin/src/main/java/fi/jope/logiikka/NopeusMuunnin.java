@@ -1,3 +1,7 @@
+/*
+ * Luokka muuntaa annetun nopeuden haluttuun yksikköön.
+ */
+
 package fi.jope.logiikka;
 
 import fi.jope.yksikko.Nopeus;
@@ -14,6 +18,10 @@ public class NopeusMuunnin implements Toiminto {
         this.nopeus = vanhaNopeusToKmH(annettuNopeus);
     }
 
+    /*
+     * Muuntaa saadun nopeuden km/h:on, jotta muuntaminen haluttuun yksikköön helpottuisi.
+     */
+    
     private double vanhaNopeusToKmH(double annettuNopeus) {
         if (annettuYksikko == Nopeus.MS) {
             return annettuNopeus * 3.6;
@@ -27,6 +35,10 @@ public class NopeusMuunnin implements Toiminto {
         
         return annettuNopeus;
     }
+    
+    /*
+     * Muuntaa km/h nopeuden haluttuun yksikköön.
+     */
     
     public void nopeusToHaluttuYksikko(Nopeus haluttuYksikko) {
         if (haluttuYksikko == Nopeus.MS) {

@@ -1,3 +1,8 @@
+/*
+ * Luokka määrittelee perustoiminnot. Jokainen metodi suorittaa 
+ * nimensä mukaisen laskutoiminnon ja muokkaa attribuuttia sen mukaisesti.
+ */
+
 package fi.jope.logiikka;
 
 public class Perustoiminto implements Toiminto {

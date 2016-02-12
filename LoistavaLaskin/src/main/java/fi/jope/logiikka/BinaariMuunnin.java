@@ -1,3 +1,7 @@
+/*
+ * Luokka muuntaa saadun desimaali- tai binääriluvun toiseen muotoon.
+ */
+
 package fi.jope.logiikka;
 
 public class BinaariMuunnin implements Toiminto {
@@ -8,11 +12,16 @@ public class BinaariMuunnin implements Toiminto {
         this.luku = luku;
     }
 
+    /*
+     * Metodi muuntaa luokan attribuutin binäärimuotoon. Jos attribuutti on
+     * negatiivinen, metodi ei toistaiseksi tee mitään.
+     */
+    
     public String desimaalistaBinaariin() {
         String binaari = "";
         if (luku == 0 || luku == 1) {
             return binaari + luku;
-        } else if (luku > 1 && luku % 1 == 0) {
+        } else if (luku > 1) {
             while (luku > 0) {
                 int jaannos = luku % 2;
                 binaari = jaannos + binaari;
@@ -21,6 +30,11 @@ public class BinaariMuunnin implements Toiminto {
         }
         return binaari;
     }
+    
+    /*
+     * Metodi muuntaa sille annetun string-muotoisen binääriluvun desimaali
+     * muotoon ja asettaa sen attribuutin arvoksi.
+     */
     
     public void binaaristaDesimaali(String binaari) {
         for (int i = 0; i < binaari.length(); i++) {

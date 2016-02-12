@@ -33,4 +33,17 @@ public class BinaariMuunninTest {
         bm.binaaristaDesimaali("1011101");
         assertEquals(93, bm.getArvo(), 0);
     }
+    
+    @Test
+    public void desimaalistaBinaariinVaaraArvo() {
+        BinaariMuunnin miinus = new BinaariMuunnin(-1);
+        assertEquals("", miinus.desimaalistaBinaariin());
+    }
+    
+    @Test
+    public void binaaristaDesimaaliinVaaraArvo() {
+        BinaariMuunnin nolla = new BinaariMuunnin(0);
+        nolla.binaaristaDesimaali("11100211");
+        assertEquals(0, nolla.getArvo(), 0);
+    }
 }

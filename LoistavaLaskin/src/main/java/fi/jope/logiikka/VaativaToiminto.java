@@ -1,3 +1,8 @@
+/*
+ * Luokka määrittelee hieman vaativammat toiminnot. Jokainen metodi suorittaa 
+ * nimensä mukaisen laskutoiminnon ja muokkaa attribuuttia sen mukaisesti.
+ */
+
 package fi.jope.logiikka;
 
 public class VaativaToiminto implements Toiminto {

@@ -1,3 +1,7 @@
+/*
+ * Luokka luo ja käynnistää valintaikkunan, jossa valitaan haluttu toiminto.
+ */
+
 package fi.jope.gui;
 
 import java.awt.*;

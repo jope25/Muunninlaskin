@@ -1,3 +1,7 @@
+/*
+ * Luokka tulee kuuntelemaan laskin-toiminnon käyttöliittymän näppäinten klikkauksia.
+ */
+
 package fi.jope.gui;
 
 import java.awt.event.ActionEvent;

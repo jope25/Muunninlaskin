@@ -1,3 +1,9 @@
+/*
+ * Luokka on vielä kesken, mutta se tulee muuttamaan annetun aikayksikön
+ * haluttuun aikayksikköön.
+ */
+
+
 package fi.jope.logiikka;
 
 import fi.jope.yksikko.Aika;

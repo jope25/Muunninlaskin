@@ -13,6 +13,10 @@ public class ValintaikkunaKuuntelija implements ActionListener {
         this.laskin = laskin;
         this.valitse = valitse;
     }
+   
+    /*
+     * Metodi käynnistää valitun toiminnon käyttöliittymän.
+     */
     
     @Override
     public void actionPerformed(ActionEvent ae) {

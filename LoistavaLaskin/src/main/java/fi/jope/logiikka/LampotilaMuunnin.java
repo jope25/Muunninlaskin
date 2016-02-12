@@ -1,3 +1,8 @@
+/*
+ * Muuntaa annetun lämpötilan haluttuun yksikköön.
+ */
+
+
 package fi.jope.logiikka;
 
 public class LampotilaMuunnin implements Toiminto {
@@ -7,8 +12,13 @@ public class LampotilaMuunnin implements Toiminto {
     public LampotilaMuunnin(double lampotila) {
         this.lampotila = lampotila;
     }
-
-// suunta: 1 = celsius muutetaan toiseksi, kelvin fahrenheitiks    
+    
+    /*
+     * Metodien nimet kertovat mitä yksikkojä käännetään ja suunta kumpaan suuntaan.
+     * kelvinFahreit vaihtaa ensiksi halutun yksikön celsius-asteiksi ja sen 
+     * jälkeen halutuun yksikköön.
+     * suunta: 1 = celsius muutetaan toiseksi, kelvin fahrenheitiks
+     */    
 
     public void celsiusFahrenheit(int suunta) {
         if (suunta == 1) {
