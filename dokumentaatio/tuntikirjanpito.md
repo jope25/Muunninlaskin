@@ -11,4 +11,5 @@ Päivä | Tunnit | Kuvaus
 11.02. | 2 | käyttöliittymän koodaus aloitettu
 12.02. | 5 | käyttöliittymää jatkettu, dediksen loput asiat
 18.02. | 2 | 2. koodikatselmointi: tutustuminen ja palautteen anto
+19.02. | 8 | Kaikkea dedikseen liittyvää.
 
