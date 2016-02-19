@@ -1,7 +1,6 @@
 /*
  * Luokka luo ja käynnistää valintaikkunan, jossa valitaan haluttu toiminto.
  */
-
 package fi.jope.gui;
 
 import java.awt.*;
@@ -23,7 +22,7 @@ public class Valintaikkuna implements Runnable {
 
     private void luoKomponentit(Container container) {
         JPanel panel = new JPanel();
-        
+
         JButton valitse = new JButton("Valitse");
         panel.add(valitse);
 
@@ -31,9 +30,9 @@ public class Valintaikkuna implements Runnable {
         JRadioButton laskin = new JRadioButton("Laskin");
 
         buttonGroup.add(laskin);
-        
+
         ValintaikkunaKuuntelija vik = new ValintaikkunaKuuntelija(laskin, valitse);
-        
+
         laskin.addActionListener(vik);
         valitse.addActionListener(vik);
 

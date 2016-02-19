@@ -1,16 +1,32 @@
 /*
- * Luokka määrittelee hieman vaativammat toiminnot. Jokainen metodi suorittaa 
- * nimensä mukaisen laskutoiminnon ja muokkaa attribuuttia sen mukaisesti.
+ * Metodit määrittelevät nimensä mukaisesti kyseisen laskutoimituksen.
  */
-
 package fi.jope.logiikka;
 
-public class VaativaToiminto implements Toiminto {
+public class Laskin {
 
     private double arvo;
 
-    public VaativaToiminto(double arvo) {
-        this.arvo = arvo;
+    public Laskin() {
+        this.arvo = 0;
+    }
+
+    public void summa(double luku) {
+        arvo += luku;
+    }
+
+    public void erotus(double luku) {
+        arvo -= luku;
+    }
+
+    public void kerto(double luku) {
+        arvo *= luku;
+    }
+
+    public void jako(double luku) {
+        if (luku != 0) {
+            arvo /= luku;
+        }
     }
 
     public void potenssi(double monesko) {
@@ -36,7 +52,7 @@ public class VaativaToiminto implements Toiminto {
     }
 
     public void binomikerroin(double n, double k) {
-        if (k < 0 || n < 0 || n%1 != 0 || k%1 != 0) {
+        if (k < 0 || n < 0 || n % 1 != 0 || k % 1 != 0) {
             return;
         }
         if (k == 0 || n == k) {
@@ -51,17 +67,19 @@ public class VaativaToiminto implements Toiminto {
                 if (i <= k) {
                     b *= i;
                 }
-                if (i <= (n-k)) {
+                if (i <= (n - k)) {
                     c *= i;
                 }
             }
-            arvo = a/(b*c);
+            arvo = a / (b * c);
         }
     }
 
-    @Override
     public double getArvo() {
         return arvo;
     }
 
+    public void setArvo(double arvo) {
+        this.arvo = arvo;
+    }
 }

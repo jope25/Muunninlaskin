@@ -4,19 +4,22 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class VaativaToimintoTest {
+public class VaikeampiLaskuTest {
 
-    VaativaToiminto vt;
-    VaativaToiminto desimaali;
-    VaativaToiminto nolla;
-    VaativaToiminto miinus;
+    Laskin vt;
+    Laskin desimaali;
+    Laskin nolla;
+    Laskin miinus;
 
     @Before
     public void setUp() {
-        vt = new VaativaToiminto(8);
-        desimaali = new VaativaToiminto(10);
-        nolla = new VaativaToiminto(0);
-        miinus = new VaativaToiminto(-3);
+        vt = new Laskin();
+        vt.setArvo(8);
+        desimaali = new Laskin();
+        desimaali.setArvo(10);
+        nolla = new Laskin();
+        miinus = new Laskin();
+        miinus.setArvo(-3);
     }
 
     @Test
@@ -39,7 +42,8 @@ public class VaativaToimintoTest {
 
     @Test
     public void logaritmiToimii() {
-        VaativaToiminto sata = new VaativaToiminto(100);
+        Laskin sata = new Laskin();
+        sata.setArvo(100);
         sata.logaritmi(10);
         vt.logaritmi(2);
 
@@ -70,8 +74,8 @@ public class VaativaToimintoTest {
 
     @Test
     public void logaritmiVirheellisetArvot() {
-        VaativaToiminto kaksi = new VaativaToiminto(2);
-
+        Laskin kaksi = new Laskin();
+        kaksi.setArvo(2);
         nolla.logaritmi(10);
         miinus.logaritmi(2);
         kaksi.logaritmi(1);
@@ -82,26 +86,26 @@ public class VaativaToimintoTest {
         assertEquals(2, kaksi.getArvo(), 0);
         assertEquals(8, vt.getArvo(), 0);
     }
-    
+
     @Test
     public void binomikerroinToimii() {
         vt.binomikerroin(vt.getArvo(), 3);
         assertEquals(56, vt.getArvo(), 0);
-        
+
         vt.binomikerroin(5, 0);
         assertEquals(1, vt.getArvo(), 0);
-        
+
         vt.binomikerroin(3, 3);
         assertEquals(1, vt.getArvo(), 0);
     }
-    
+
     @Test
     public void binomikerroinVirheellisetArvot() {
         vt.binomikerroin(1.5, 1);
         vt.binomikerroin(2, 1.5);
         vt.binomikerroin(-2, 0);
         vt.binomikerroin(5, -2);
-        
+
         assertEquals(8, vt.getArvo(), 0);
     }
 }

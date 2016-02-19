@@ -18,17 +18,6 @@
 * laskutoimituksen laskeminen
 * tuloksen nollaus
 
-##Luokkakaavio
+##Määrittelyvaiheen luokkakaavio
 
-![Kaavio](/dokumentaatio/Kaaviot/Luokkakaavio.JPG)
-
-##Sekvenssikaaviot
-
-###Laskimen käyttö
-
-![Kaavio](/dokumentaatio/Kaaviot/LaskimenKaytto.JPG)
-
-###Toiminnon valinta
-
-![Kaavio](/dokumentaatio/Kaaviot/ToiminnonValinta.JPG)
-
+![Kaavio](/dokumentaatio/Kaaviot/MäärittelyvaiheenLuokkakaavio.jpg)

@@ -4,15 +4,17 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class PerustoimintoTest {
+public class PerusLaskuTest {
 
-    Perustoiminto pt;
-    Perustoiminto desimaali;
+    Laskin pt;
+    Laskin desimaali;
 
     @Before
     public void setUp() {
-        pt = new Perustoiminto(5);
-        desimaali = new Perustoiminto(3);
+        pt = new Laskin();
+        pt.setArvo(5);
+        desimaali = new Laskin();
+        desimaali.setArvo(3);
     }
 
     @Test
@@ -60,9 +62,10 @@ public class PerustoimintoTest {
 
     @Test
     public void miinusLaskutToimii() {
-        Perustoiminto miinus1 = new Perustoiminto(-2);
-        Perustoiminto miinus2 = new Perustoiminto(7);
-
+        Laskin miinus1 = new Laskin();
+        miinus1.setArvo(-2);
+        Laskin miinus2 = new Laskin();
+        miinus2.setArvo(7);
         pt.summa(-6);
         desimaali.erotus(-2.5);
         miinus1.kerto(-4);
