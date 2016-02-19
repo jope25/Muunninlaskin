@@ -1,5 +1,5 @@
 # loistavaLaskin
-Graafinen laskin, josta löytyy normaalia laskinta enemmän toiminallisuutta (esim. yksikkö- ja valuuttamuunnin).
+Graafinen laskin, josta löytyy myös käpistelijöille suunnattua toiminallisuutta.
 
 ##Dokumentointi
 * [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaMääritelmä.md)
