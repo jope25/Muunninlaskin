@@ -24,18 +24,18 @@ public class LaskinKayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
         JTextField kentta = new JTextField("");
-        kentta.setPreferredSize(new Dimension(350, 50));
+        kentta.setPreferredSize(new Dimension(375, 50));
         kentta.setEnabled(false);
 
-        LaskinNappaimet lm = new LaskinNappaimet();
-        LaskinKuuntelija lk = new LaskinKuuntelija(new Laskin(), lm.getNappaimet(), kentta);
+        LaskinNappaimet ln = new LaskinNappaimet();
+        LaskinKuuntelija lk = new LaskinKuuntelija(new Laskin(), ln.getNappaimet(), kentta);
 
-        for (JButton nappi : lm.getNappaimet().keySet()) {
+        for (JButton nappi : ln.getNappaimet().keySet()) {
             nappi.addActionListener(lk);
         }
 
         container.setLayout(new BorderLayout());
         container.add(kentta, BorderLayout.NORTH);
-        container.add(lm);
+        container.add(ln);
     }
 }

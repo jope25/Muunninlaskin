@@ -30,10 +30,9 @@ public class Laskin {
     }
 
     public void potenssi(double monesko) {
-        if (arvo == 0 && monesko <= 0) {
-            return;
+        if (arvo != 0 && monesko > 0) {
+            arvo = Math.pow(arvo, monesko);
         }
-        arvo = Math.pow(arvo, monesko);
     }
 
     public void juuri(double juuri) {

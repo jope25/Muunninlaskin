@@ -10,93 +10,128 @@ import fi.jope.logiikka.Laskin;
 
 public class LaskinKuuntelija implements ActionListener {
 
+    Laskin laskin;
     Map<JButton, String> nappaimet;
     JTextField kentta;
-    Laskin laskin;
+    String komento;
+    boolean toteutaKomento;
 
     public LaskinKuuntelija(Laskin laskin, Map nappaimet, JTextField kentta) {
         this.laskin = laskin;
         this.nappaimet = nappaimet;
         this.kentta = kentta;
+        this.komento = "";
+        this.toteutaKomento = false;
     }
 
-    public void tyhjennaKentta() {
+    private void tyhjennaKentta() {
         kentta.setText("");
     }
 
-    public void asetaTeksti(int numero) {
+    private void asetaTeksti(int numero) {
         kentta.setText("" + kentta.getText() + numero);
+    }
+
+    private void toteutaLaskutoiminto(String toiminto, double arvo) {
+        switch (toiminto) {
+            case "+":
+                laskin.summa(arvo);
+                kentta.setText("" + laskin.getArvo());
+                break;
+            case "-":
+                laskin.erotus(arvo);
+                kentta.setText("" + laskin.getArvo());
+                break;
+            case "x":
+                laskin.kerto(arvo);
+                kentta.setText("" + laskin.getArvo());
+                break;
+            case "/":
+                if (arvo == 0) {
+                    kentta.setText("Virhe: Nollalla jako");
+                } else {
+                    laskin.jako(arvo);
+                    kentta.setText("" + laskin.getArvo());
+                }
+                break;
+            case "x^y":
+                if (laskin.getArvo() == 0) {
+                    kentta.setText("Virhe: Nolla kantalukuna");
+                }
+                laskin.potenssi(arvo);
+                kentta.setText("" + laskin.getArvo());
+                break;
+            case "√x":
+                break;
+            case "log_x (y)":
+                break;
+            case "nCr":
+                break;
+            default:
+                break;
+        }
+        komento = "";
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        String painetunNapinNimi = "";
-        double kentanLuku = Double.parseDouble(0 + kentta.getText());
+        double kentanLuku;
 
-        for (JButton nappi : nappaimet.keySet()) {
-            if (nappi == ae.getSource()) {
-                painetunNapinNimi = nappaimet.get(nappi);
-            }
+        if (kentta.getText().contains("Virhe")) {
+            kentanLuku = 0;
+        } else {
+            kentanLuku = Double.parseDouble(0 + kentta.getText());
         }
 
-        switch (painetunNapinNimi) {
-            case "nolla":
+        JButton nappi = (JButton) ae.getSource();
+        String napinTeksti = nappi.getText();
+
+        switch (napinTeksti) {
+            case "0":
                 asetaTeksti(0);
                 break;
-            case "yksi":
+            case "1":
                 asetaTeksti(1);
                 break;
-            case "kaksi":
+            case "2":
                 asetaTeksti(2);
                 break;
-            case "kolme":
+            case "3":
                 asetaTeksti(3);
                 break;
-            case "nelonen":
+            case "4":
                 asetaTeksti(4);
                 break;
-            case "vitonen":
+            case "5":
                 asetaTeksti(5);
                 break;
-            case "kutonen":
+            case "6":
                 asetaTeksti(6);
                 break;
-            case "seiska":
+            case "7":
                 asetaTeksti(7);
                 break;
-            case "kasi":
+            case "8":
                 asetaTeksti(8);
                 break;
-            case "ysi":
+            case "9":
                 asetaTeksti(9);
                 break;
-            case "plus":
-                laskin.summa(kentanLuku);
-                kentta.setText("" + laskin.getArvo());
+            case ".":
                 break;
-            case "miinus":
+            case "(-)":
                 break;
-            case "kerto":
+            case "=":
+                toteutaLaskutoiminto(komento, kentanLuku);
                 break;
-            case "jako":
-                break;
-            case "piste":
-                break;
-            case "negatiivinen":
-                break;
-            case "potenssi":
-                break;
-            case "juuri":
-                break;
-            case "logaritmi":
-                break;
-            case "binomi":
-                break;
-            case "yhtakuin":
-                break;
-            case "nollaus":
+            case "AC":
+                tyhjennaKentta();
+                laskin.setArvo(0);
                 break;
             default:
+                komento = napinTeksti;
+                laskin.setArvo(kentanLuku);
+                tyhjennaKentta();
                 break;
         }
     }
