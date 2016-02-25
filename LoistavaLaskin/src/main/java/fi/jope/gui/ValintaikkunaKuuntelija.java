@@ -9,10 +9,12 @@ import javax.swing.*;
 public class ValintaikkunaKuuntelija implements ActionListener {
 
     private JRadioButton laskin;
+    private JRadioButton bm;
     private JButton valitse;
 
-    public ValintaikkunaKuuntelija(JRadioButton laskin, JButton valitse) {
+    public ValintaikkunaKuuntelija(JRadioButton laskin, JRadioButton bm, JButton valitse) {
         this.laskin = laskin;
+        this.bm = bm;
         this.valitse = valitse;
     }
 
@@ -24,6 +26,8 @@ public class ValintaikkunaKuuntelija implements ActionListener {
         if (ae.getSource() == this.valitse) {
             if (laskin.isSelected()) {
                 SwingUtilities.invokeLater(new LaskinKayttoliittyma());
+            } else if (bm.isSelected()) {
+                SwingUtilities.invokeLater(new BinaarimuunninKayttoliittyma());
             }
         }
     }

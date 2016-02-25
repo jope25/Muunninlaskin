@@ -3,11 +3,11 @@
  */
 package fi.jope.logiikka;
 
-public class BinaariMuunnin {
+public class Binaarimuunnin {
 
     private int luku;
 
-    public BinaariMuunnin(int luku) {
+    public Binaarimuunnin(int luku) {
         this.luku = luku;
     }
 

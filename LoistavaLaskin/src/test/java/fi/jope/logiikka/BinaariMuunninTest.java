@@ -8,10 +8,10 @@ public class BinaariMuunninTest {
 
     @Test
     public void desimaalistaBinaariinToimii() {
-        BinaariMuunnin nolla = new BinaariMuunnin(0);
-        BinaariMuunnin kaksi = new BinaariMuunnin(2);
-        BinaariMuunnin bm = new BinaariMuunnin(43);
-        BinaariMuunnin bm2 = new BinaariMuunnin(16);
+        Binaarimuunnin nolla = new Binaarimuunnin(0);
+        Binaarimuunnin kaksi = new Binaarimuunnin(2);
+        Binaarimuunnin bm = new Binaarimuunnin(43);
+        Binaarimuunnin bm2 = new Binaarimuunnin(16);
 
         assertEquals("0", nolla.desimaalistaBinaariin());
         assertEquals("10", kaksi.desimaalistaBinaariin());
@@ -22,7 +22,7 @@ public class BinaariMuunninTest {
 
     @Test
     public void binaaristaDesimaaliinToimii() {
-        BinaariMuunnin bm = new BinaariMuunnin(0);
+        Binaarimuunnin bm = new Binaarimuunnin(0);
 
         bm.binaaristaDesimaali("1");
         assertEquals(1, bm.getArvo(), 0);
@@ -36,13 +36,13 @@ public class BinaariMuunninTest {
 
     @Test
     public void desimaalistaBinaariinVaaraArvo() {
-        BinaariMuunnin miinus = new BinaariMuunnin(-1);
+        Binaarimuunnin miinus = new Binaarimuunnin(-1);
         assertEquals("", miinus.desimaalistaBinaariin());
     }
 
     @Test
     public void binaaristaDesimaaliinVaaraArvo() {
-        BinaariMuunnin nolla = new BinaariMuunnin(0);
+        Binaarimuunnin nolla = new Binaarimuunnin(0);
         nolla.binaaristaDesimaali("11100211");
         assertEquals(0, nolla.getArvo(), 0);
     }

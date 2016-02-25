@@ -44,29 +44,29 @@ public class Laskin {
         arvo = Math.pow(arvo, 1.0 / juuri);
     }
 
-    public void logaritmi(int kanta) {
-        if (arvo > 0 && kanta > 1) {
+    public void logaritmi(double kanta) {
+        if (arvo > 0 && kanta != 1 && kanta > 0) {
             arvo = Math.log10(arvo) / Math.log10(kanta);
         }
     }
 
-    public void binomikerroin(double n, double k) {
-        if (k < 0 || n < 0 || n % 1 != 0 || k % 1 != 0) {
+    public void binomikerroin(double k) {
+        if (k < 0 || arvo < 0 || arvo % 1 != 0 || k % 1 != 0) {
             return;
         }
-        if (k == 0 || n == k) {
+        if (k == 0 || arvo == k) {
             arvo = 1;
-        } else if (k > 0 && n > k) {
+        } else if (k > 0 && arvo > k) {
             int a = 1;
             int b = 1;
             int c = 1;
 
-            for (int i = 1; i <= n; i++) {
+            for (int i = 1; i <= arvo; i++) {
                 a *= i;
                 if (i <= k) {
                     b *= i;
                 }
-                if (i <= (n - k)) {
+                if (i <= (arvo - k)) {
                     c *= i;
                 }
             }

@@ -96,7 +96,7 @@ public class LaskinNappaimet extends JPanel {
 
     private void luoVaativatToiminnot() {
         JButton potenssi = new JButton("x^y");
-        JButton juuri = new JButton("√x");
+        JButton juuri = new JButton("y√x");
         JButton logaritmi = new JButton("log_x (y)");
         JButton binomi = new JButton("nCr");
 

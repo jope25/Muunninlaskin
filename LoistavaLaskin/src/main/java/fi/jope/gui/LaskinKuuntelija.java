@@ -28,47 +28,52 @@ public class LaskinKuuntelija implements ActionListener {
         kentta.setText("");
     }
 
-    private void asetaTeksti(int numero) {
-        kentta.setText("" + kentta.getText() + numero);
+    private void asetaTeksti(String lisattava) {
+        kentta.setText(kentta.getText() + lisattava);
     }
 
     private void toteutaLaskutoiminto(String toiminto, double arvo) {
+        String virheIlmoitus = "";
+        
         switch (toiminto) {
             case "+":
                 laskin.summa(arvo);
-                kentta.setText("" + laskin.getArvo());
                 break;
             case "-":
                 laskin.erotus(arvo);
-                kentta.setText("" + laskin.getArvo());
                 break;
             case "x":
                 laskin.kerto(arvo);
-                kentta.setText("" + laskin.getArvo());
                 break;
             case "/":
                 if (arvo == 0) {
-                    kentta.setText("Virhe: Nollalla jako");
+                    virheIlmoitus = "Virhe: nollalla jako";
                 } else {
                     laskin.jako(arvo);
-                    kentta.setText("" + laskin.getArvo());
                 }
                 break;
             case "x^y":
                 if (laskin.getArvo() == 0) {
-                    kentta.setText("Virhe: Nolla kantalukuna");
+                    virheIlmoitus = "Virhe: nolla kantalukuna";
                 }
                 laskin.potenssi(arvo);
-                kentta.setText("" + laskin.getArvo());
                 break;
-            case "√x":
+            case "y√x":
+                laskin.juuri(arvo);
                 break;
             case "log_x (y)":
+                laskin.logaritmi(arvo);
                 break;
             case "nCr":
+                laskin.binomikerroin(arvo);
                 break;
             default:
                 break;
+        }
+        if (!virheIlmoitus.equals("")) {
+            asetaTeksti(virheIlmoitus);
+        } else {
+            asetaTeksti("" + laskin.getArvo());
         }
         komento = "";
     }
@@ -79,8 +84,16 @@ public class LaskinKuuntelija implements ActionListener {
 
         if (kentta.getText().contains("Virhe")) {
             kentanLuku = 0;
+            tyhjennaKentta();
         } else {
-            kentanLuku = Double.parseDouble(0 + kentta.getText());
+            try {
+                kentanLuku = Double.parseDouble(0 + kentta.getText());
+            } catch (Exception e) {
+                tyhjennaKentta();
+                asetaTeksti("Virhe: liikaa desimaalipilkkuja");
+                kentanLuku = 0;
+                return;
+            }
         }
 
         JButton nappi = (JButton) ae.getSource();
@@ -88,40 +101,22 @@ public class LaskinKuuntelija implements ActionListener {
 
         switch (napinTeksti) {
             case "0":
-                asetaTeksti(0);
-                break;
             case "1":
-                asetaTeksti(1);
-                break;
             case "2":
-                asetaTeksti(2);
-                break;
             case "3":
-                asetaTeksti(3);
-                break;
             case "4":
-                asetaTeksti(4);
-                break;
             case "5":
-                asetaTeksti(5);
-                break;
             case "6":
-                asetaTeksti(6);
-                break;
             case "7":
-                asetaTeksti(7);
-                break;
             case "8":
-                asetaTeksti(8);
-                break;
             case "9":
-                asetaTeksti(9);
-                break;
             case ".":
+                asetaTeksti(napinTeksti);
                 break;
             case "(-)":
                 break;
             case "=":
+                tyhjennaKentta();
                 toteutaLaskutoiminto(komento, kentanLuku);
                 break;
             case "AC":

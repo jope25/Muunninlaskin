@@ -13,7 +13,7 @@ public class Valintaikkuna implements Runnable {
     @Override
     public void run() {
         this.frame = new JFrame("LoistavaLaskin");
-        frame.setPreferredSize(new Dimension(200, 150));
+        frame.setPreferredSize(new Dimension(200, 175));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
@@ -28,17 +28,21 @@ public class Valintaikkuna implements Runnable {
 
         ButtonGroup buttonGroup = new ButtonGroup();
         JRadioButton laskin = new JRadioButton("Laskin");
+        JRadioButton bm = new JRadioButton("Binäärimuunnin");
 
         buttonGroup.add(laskin);
+        buttonGroup.add(bm);
 
-        ValintaikkunaKuuntelija vik = new ValintaikkunaKuuntelija(laskin, valitse);
+        ValintaikkunaKuuntelija vik = new ValintaikkunaKuuntelija(laskin, bm, valitse);
 
         laskin.addActionListener(vik);
+        bm.addActionListener(vik);
         valitse.addActionListener(vik);
 
-        container.setLayout(new GridLayout(3, 1));
+        container.setLayout(new GridLayout(4, 1));
         container.add(new JLabel("Valitse toiminto:"));
         container.add(laskin);
+        container.add(bm);
         container.add(panel, BorderLayout.SOUTH);
     }
 }
