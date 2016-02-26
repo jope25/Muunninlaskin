@@ -8,14 +8,14 @@ Käyttäjä saa haluamansa numeron tekstikenttään klikkaamalla numeronäppäim
 
 Näppäin | Funktio
 ------- | -------
-"+" | a plus b
-"-" | a miinus b
-"x" | a kertaa b
-"/" | a jaettuna c
-"x^y" | a potenssiin b
-"y√x" | b. juuri a:sta
-"log_x (y)" | b-kantainen logaritmi a:sta
-"nCr" | a yli b
++ | a plus b
+- | a miinus b
+x | a kertaa b
+/ | a jaettuna c
+x^y | a potenssiin b
+y√x | b. juuri a:sta
+log_x (y) | b-kantainen logaritmi a:sta
+nCr | a yli b
 
 Tämän jälkeen käyttäjä klikkaa yhtäkuin näppäintä, jolloin vastaus ilmestyy tekstikenttään. Käyttäjä voi nolla vastauksen "AC" näppäimellä tai jatkaa laskemista vastauksesta. Ohjelma suljetaan sulkemalla ikkuna.
 
