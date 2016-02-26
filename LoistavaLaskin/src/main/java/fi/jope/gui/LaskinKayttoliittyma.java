@@ -30,7 +30,7 @@ public class LaskinKayttoliittyma implements Runnable {
         LaskinNappaimet ln = new LaskinNappaimet();
         LaskinKuuntelija lk = new LaskinKuuntelija(new Laskin(), ln.getNappaimet(), kentta);
 
-        for (JButton nappi : ln.getNappaimet().keySet()) {
+        for (JButton nappi : ln.getNappaimet()) {
             nappi.addActionListener(lk);
         }
 

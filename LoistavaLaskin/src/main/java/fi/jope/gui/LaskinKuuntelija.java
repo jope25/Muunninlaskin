@@ -4,24 +4,22 @@
 package fi.jope.gui;
 
 import java.awt.event.*;
-import java.util.Map;
+import java.util.List;
 import javax.swing.*;
 import fi.jope.logiikka.Laskin;
 
 public class LaskinKuuntelija implements ActionListener {
 
     Laskin laskin;
-    Map<JButton, String> nappaimet;
+    List<JButton> nappaimet;
     JTextField kentta;
     String komento;
-    boolean toteutaKomento;
 
-    public LaskinKuuntelija(Laskin laskin, Map nappaimet, JTextField kentta) {
+    public LaskinKuuntelija(Laskin laskin, List nappaimet, JTextField kentta) {
         this.laskin = laskin;
         this.nappaimet = nappaimet;
         this.kentta = kentta;
         this.komento = "";
-        this.toteutaKomento = false;
     }
 
     private void tyhjennaKentta() {

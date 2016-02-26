@@ -5,15 +5,16 @@ package fi.jope.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LaskinNappaimet extends JPanel {
 
-    private Map<JButton, String> nappaimet;
+    private List<JButton> nappaimet;
 
     public LaskinNappaimet() {
         super(new GridLayout(6, 4));
-        this.nappaimet = new HashMap();
+        this.nappaimet = new ArrayList();
         luoNappaimet();
     }
 
@@ -37,10 +38,10 @@ public class LaskinNappaimet extends JPanel {
         add(ysi);
         add(plus);
 
-        nappaimet.put(seiska, "seiska");
-        nappaimet.put(kasi, "kasi");
-        nappaimet.put(ysi, "ysi");
-        nappaimet.put(plus, "plus");
+        nappaimet.add(seiska);
+        nappaimet.add(kasi);
+        nappaimet.add(ysi);
+        nappaimet.add(plus);
     }
 
     private void luoNelosestaKutoseenJaMiinus() {
@@ -54,10 +55,10 @@ public class LaskinNappaimet extends JPanel {
         add(kutonen);
         add(miinus);
 
-        nappaimet.put(nelonen, "nelonen");
-        nappaimet.put(vitonen, "vitonen");
-        nappaimet.put(kutonen, "kutonen");
-        nappaimet.put(miinus, "miinus");
+        nappaimet.add(nelonen);
+        nappaimet.add(vitonen);
+        nappaimet.add(kutonen);
+        nappaimet.add(miinus);
     }
 
     private void luoYkkosestaKolmoseenJaKerto() {
@@ -71,10 +72,10 @@ public class LaskinNappaimet extends JPanel {
         add(kolme);
         add(kerto);
 
-        nappaimet.put(yksi, "yksi");
-        nappaimet.put(kaksi, "kaksi");
-        nappaimet.put(kolme, "kolme");
-        nappaimet.put(kerto, "kerto");
+        nappaimet.add(yksi);
+        nappaimet.add(kaksi);
+        nappaimet.add(kolme);
+        nappaimet.add(kerto);
     }
 
     private void luoNollaPisteMiinusJako() {
@@ -88,10 +89,10 @@ public class LaskinNappaimet extends JPanel {
         add(piste);
         add(jako);
 
-        nappaimet.put(piste, "piste");
-        nappaimet.put(negatiivinen, "negatiivinen");
-        nappaimet.put(nolla, "nolla");
-        nappaimet.put(jako, "jako");
+        nappaimet.add(piste);
+        nappaimet.add(negatiivinen);
+        nappaimet.add(nolla);
+        nappaimet.add(jako);
     }
 
     private void luoVaativatToiminnot() {
@@ -105,10 +106,10 @@ public class LaskinNappaimet extends JPanel {
         add(logaritmi);
         add(binomi);
 
-        nappaimet.put(potenssi, "potenssi");
-        nappaimet.put(juuri, "juuri");
-        nappaimet.put(logaritmi, "logaritmi");
-        nappaimet.put(binomi, "binomi");
+        nappaimet.add(potenssi);
+        nappaimet.add(juuri);
+        nappaimet.add(logaritmi);
+        nappaimet.add(binomi);
     }
 
     private void luoYhtakuinJaNollaus() {
@@ -118,11 +119,11 @@ public class LaskinNappaimet extends JPanel {
         add(yhtakuin);
         add(nollaus);
 
-        nappaimet.put(yhtakuin, "yhtakuin");
-        nappaimet.put(nollaus, "nollaus");
+        nappaimet.add(yhtakuin);
+        nappaimet.add(nollaus);
     }
 
-    public Map<JButton, String> getNappaimet() {
+    public List<JButton> getNappaimet() {
         return nappaimet;
     }
 }

@@ -11,7 +11,7 @@ public class BinaarimuunninKayttoliittyma implements Runnable {
     @Override
     public void run() {
         this.frame = new JFrame("Binäärimuunnin");
-        frame.setPreferredSize(new Dimension(375, 400));
+        frame.setPreferredSize(new Dimension(350, 300));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
@@ -20,10 +20,19 @@ public class BinaarimuunninKayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
         JTextField kentta = new JTextField("");
-        kentta.setPreferredSize(new Dimension(375, 50));
+        kentta.setPreferredSize(new Dimension(275, 50));
         kentta.setEnabled(false);
+
+        BinaarimuunninNappaimet bmn = new BinaarimuunninNappaimet();
+        BinaarimuunninKuuntelija lk = new BinaarimuunninKuuntelija(new Binaarimuunnin(), 
+                bmn.getNappaimet(), kentta);
+
+        for (JButton nappi : bmn.getNappaimet()) {
+            nappi.addActionListener(lk);
+        }
 
         container.setLayout(new BorderLayout());
         container.add(kentta, BorderLayout.NORTH);
+        container.add(bmn);
     }
 }
