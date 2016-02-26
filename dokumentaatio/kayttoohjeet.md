@@ -7,7 +7,7 @@ Käyttäjän käynnistäessä ohjelman avautuu ikkuna, josta hän valitsee halua
 Käyttäjä saa haluamansa numeron tekstikenttään klikkaamalla numeronäppäimiä. Desimaalipilkku/piste näppäintä painamalla hän voi muodostaa desimaali numeron. Tämän jälkeen hän klikkaa haluamansa laskutoiminnon näppäintä ja syöttää uuden numeron. Seuraavassa taulukko, mitä näppäimet laskee sekä mitä ensimmäinen ja toinen numero tekee eri laskutoimituksissa (1. luku = a, 2. toinen luku = b):
 
 Näppäin | Funktio
--------   -------
+------- | -------
 "+" | a plus b
 "-" | a miinus b
 "x" | a kertaa b
