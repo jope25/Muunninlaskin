@@ -20,11 +20,7 @@
 
 ##Luokkakaavio
 
-![Kaavio](/dokumentaatio/Kaaviot/Luokkakaavio2.JPG)
-
-###Rakennekuvaus
-
-Main:ssa luodaan Valintaikkuna, joka luo ValintaikkunaKuuntelijan. Valintaikkunan valintojen perusteella kuuntelija käynnistää joko Binaarimuunnin- tai LaskinKayttoliittyman. Kummatkin näistä luovat itselleen kuuntelijan sekä näppäimet. Kuuntelijat ovat yhteydessä joko Laskin- tai Binaarimuunnin-luokaan.
+![Kaavio](/dokumentaatio/Kaaviot/Luokkakaavio.JPG)
 
 ##Sekvenssikaaviot
 

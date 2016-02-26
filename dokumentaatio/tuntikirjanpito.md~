@@ -13,3 +13,4 @@ Päivä | Tunnit | Kuvaus
 18.02. | 2 | 2. koodikatselmointi: tutustuminen ja palautteen anto
 19.02. | 8 | Kaikkea dedikseen liittyvää
 25.02. | 5 | Koodausta
+26.02. | 2 | Koodausta

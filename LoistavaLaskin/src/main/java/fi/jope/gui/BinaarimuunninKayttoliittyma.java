@@ -1,3 +1,6 @@
+/**
+ * Luokka luo binäärimuuntimen käyttöliittymän.
+ */
 package fi.jope.gui;
 
 import fi.jope.logiikka.Binaarimuunnin;

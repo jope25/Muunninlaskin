@@ -1,5 +1,5 @@
-/*
- * Luokka luo ja käynnistää valintaikkunan, jossa valitaan haluttu toiminto.
+/**
+ * Luokka luo valintaikkunan, jossa valitaan haluttu toiminto.
  */
 package fi.jope.gui;
 

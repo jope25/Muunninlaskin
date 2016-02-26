@@ -1,4 +1,4 @@
-/*
+/**
  * Käynnistää ohjelman ja valintaikkunan.
  */
 package fi.jope.gui;

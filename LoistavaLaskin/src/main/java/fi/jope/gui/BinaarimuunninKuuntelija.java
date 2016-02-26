@@ -1,3 +1,6 @@
+/**
+ * Luokka kuuntelee binäärimuuntimen käyttöliittymän klikkauksia.
+ */
 package fi.jope.gui;
 
 import java.awt.event.*;

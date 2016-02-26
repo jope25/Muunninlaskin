@@ -1,3 +1,6 @@
+/**
+ * Luokka luo binäärimuuntimen käyttöliitymän näppäimet ja tallettaa ne ArrayListiin.
+ */
 package fi.jope.gui;
 
 import javax.swing.*;

@@ -1,4 +1,4 @@
-/*
+/**
  * Luokkaa kuuntelee Valintaikkunan käyttöliittymää.
  */
 package fi.jope.gui;
@@ -17,10 +17,7 @@ public class ValintaikkunaKuuntelija implements ActionListener {
         this.bm = bm;
         this.valitse = valitse;
     }
-
-    /*
-     * Metodi käynnistää valitun toiminnon käyttöliittymän.
-     */
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.valitse) {

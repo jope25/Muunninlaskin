@@ -1,5 +1,5 @@
-/*
- * Luokka luo LaskinKäyttöliitymään näppäimet ja tallettaa ne HashMappiin.
+/**
+ * Luokka luo LaskinKäyttöliitymään näppäimet ja tallettaa ne ArrayListiin.
  */
 package fi.jope.gui;
 

@@ -1,5 +1,5 @@
-/*
- * Luokka tulee kuuntelemaan laskin-toiminnon käyttöliittymän näppäinten klikkauksia.
+/**
+ * Luokka kuuntelee laskin-toiminnon käyttöliittymän näppäinten klikkauksia.
  */
 package fi.jope.gui;
 

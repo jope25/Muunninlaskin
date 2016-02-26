@@ -1,6 +1,5 @@
-/*
- * Jos valintaikkunasta valitaan laskin-toiminto, niin tämä luokka luo sen
- * komponentit ja käynnistää sen käyttöliittymän.
+/**
+ * Luokka luo laskin-toiminnon käyttöliittymän.
  */
 package fi.jope.gui;
 
