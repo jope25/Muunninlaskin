@@ -59,26 +59,26 @@ public class BinaarimuunninKuuntelija implements ActionListener {
                 break;
             case "AC":
                 tyhjennaKentta();
-                bm.setArvo(0);
                 break;
             case "dec -> bin":
-                bm.setArvo(Long.parseLong(kentanLuku));
-                bm.desimaalistaBinaariin();
                 tyhjennaKentta();
-                asetaTeksti("" + bm.getArvo());
+                if (!bm.tarkistaDesimaali(kentanLuku)) {
+                    asetaTeksti("Virhe: ei ole desimaaliluku");
+                } else {
+                    String s = bm.desimaalistaBinaariin(Long.parseLong(kentanLuku));
+                    asetaTeksti(s);
+                }
                 break;
             case "bin -> dec":
                 tyhjennaKentta();
                 if (!bm.tarkistaBinaari(kentanLuku)) {
                     asetaTeksti("Virhe: ei binääriluku");
                 } else {
-                    bm.binaaristaDesimaali(kentanLuku);
-                    asetaTeksti("" + bm.getArvo());
+                    long l = bm.binaaristaDesimaali(kentanLuku);
+                    asetaTeksti("" + l);
                 }
                 break;
             default:
-                bm.setArvo(Long.parseLong(kentanLuku));
-                tyhjennaKentta();
                 break;
         }
     }

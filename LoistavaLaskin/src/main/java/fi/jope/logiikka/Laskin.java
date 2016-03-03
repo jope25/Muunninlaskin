@@ -32,7 +32,7 @@ public class Laskin {
     /**
      * Kertoo laskimen arvon annetulla luvulla.
      * 
-     * @param luku Kerrottava luku.
+     * @param luku Kerrottava luku
      */
     public void kerto(double luku) {
         arvo *= luku;
@@ -73,7 +73,7 @@ public class Laskin {
 /**
  * Laskimen arvolla lasketaan annetun kantainen logaritmi.
  * 
- * @param kanta Logaritmille annettava kanta.
+ * @param kanta Logaritmille annettava kanta
  */
     public void logaritmi(double kanta) {
         if (arvo > 0 && kanta != 1 && kanta > 0) {
@@ -83,7 +83,7 @@ public class Laskin {
 /**
  * Metodi määrittelee binomikertoimen, joka lasketaan laskimen arvon ja annetun arvon kanssa.
  * 
- * @param k Annettava luku.
+ * @param k Annettava luku
  */
     public void binomikerroin(double k) {
         if (k < 0 || arvo < 0 || arvo % 1 != 0 || k % 1 != 0) {

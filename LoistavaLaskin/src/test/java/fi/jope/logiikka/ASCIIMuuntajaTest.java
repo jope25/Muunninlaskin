@@ -14,14 +14,22 @@ public class ASCIIMuuntajaTest {
     }
     
     @Test
-    public void kirjaimistaASCII() {
-        assertEquals("97 115 99 105 105", a.kirjaimistaASCII("ascii"));
-        assertEquals("65 83 67 73 73", a.kirjaimistaASCII("ASCII"));
+    public void merkkiToASCIIToimii() {
+        assertEquals("97 115 99 105 105", a.merkkiToASCII("ascii"));
+        assertEquals("65 83 67 73 73", a.merkkiToASCII("ASCII"));
     }
     
     @Test
-    public void ASCIIstaKirjaimet() {
-        assertEquals("ASCII", a.ASCIIstaKirjaimet("6583677373"));
-        assertEquals("ascii", a.ASCIIstaKirjaimet("9711599105105"));
+    public void ASCIIToMerkkiToimii() {
+        assertEquals("ASCII", a.ASCIIToMerkki("6583677373"));
+        assertEquals("ascii", a.ASCIIToMerkki("9711599105105"));
+    }
+    
+    @Test
+    public void ASCIIToMerkkiHuomaaVirheellisenASCIIn() {
+        assertEquals("Virhe: virheellinen ASCII", a.ASCIIToMerkki("82846662a4"));
+        assertEquals("Virhe: ethän laita turhia etunollia", a.ASCIIToMerkki("097115099105105"));
+        assertEquals("Virhe: virheellinen ASCII", a.ASCIIToMerkki("971159910510"));
+        assertEquals("Virhe: virheellinen ASCII", a.ASCIIToMerkki("658367737"));
     }
 }

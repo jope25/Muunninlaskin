@@ -6,64 +6,38 @@ import static org.junit.Assert.*;
 
 public class BinaariMuunninTest {
 
-    Binaarimuunnin nolla;
-    Binaarimuunnin kaksi;
+    Binaarimuunnin bm;
     
     @Before
     public void setUp() {
-        nolla = new Binaarimuunnin();
-        kaksi = new Binaarimuunnin();
-        kaksi.setArvo(2);
+        bm = new Binaarimuunnin();
     }
     
     @Test
     public void desimaalistaBinaariinToimii() {
-        nolla.desimaalistaBinaariin();
-        assertEquals(0, nolla.getArvo());
-
-        kaksi.desimaalistaBinaariin();
-        assertEquals(10, kaksi.getArvo());
-        
-        Binaarimuunnin bm = new Binaarimuunnin();
-        bm.setArvo(43);
-        bm.desimaalistaBinaariin();
-        assertEquals(101011, bm.getArvo());
-        
-        Binaarimuunnin bm2 = new Binaarimuunnin();
-        bm2.setArvo(16);
-        bm2.desimaalistaBinaariin();
-        assertEquals(10000, bm2.getArvo());
+        assertEquals("0", bm.desimaalistaBinaariin(0));
+        assertEquals("10", bm.desimaalistaBinaariin(2));
+        assertEquals("101011", bm.desimaalistaBinaariin(43));
+        assertEquals("10000", bm.desimaalistaBinaariin(16));
 
     }
 
     @Test
     public void binaaristaDesimaaliinToimii() {
-        nolla.binaaristaDesimaali("1");
-        assertEquals(1, nolla.getArvo(), 0);
-
-        nolla.binaaristaDesimaali("1111");
-        assertEquals(15, nolla.getArvo(), 0);
-
-        nolla.binaaristaDesimaali("1011101");
-        assertEquals(93, nolla.getArvo(), 0);
-    }
-
-    @Test
-    public void desimaalistaBinaariinVaaraArvo() {
-        Binaarimuunnin miinus = new Binaarimuunnin();
-        miinus.setArvo(-1);
-        miinus.desimaalistaBinaariin();
-        assertEquals(-1, miinus.getArvo());
+        assertEquals(1, bm.binaaristaDesimaali("1"));
+        assertEquals(15, bm.binaaristaDesimaali("1111"));
+        assertEquals(93, bm.binaaristaDesimaali("1011101"));
     }
 
     @Test
     public void tarkistaBinaariMetodiToimii() {
-        Binaarimuunnin bm = new Binaarimuunnin();
+        assertTrue(bm.tarkistaBinaari("11001110001111"));
         assertTrue(!bm.tarkistaBinaari("110011100081111"));
     }
+    
     @Test
-    public void binaaristaDesimaaliinVaaraArvo() {
-        nolla.binaaristaDesimaali("11100211");
-        assertEquals(0, nolla.getArvo(), 0);
+    public void tarkistaDesimaaliMetodiToimii() {
+        assertTrue(bm.tarkistaDesimaali("123456789"));
+        assertTrue(!bm.tarkistaDesimaali("1234785a78"));
     }
 }
