@@ -1,12 +1,12 @@
 package fi.jope.logiikka;
 
 public class ASCIIMuuntaja {
+
     /**
      * Metodi muuntaa annettavan merkkijonon ASCII numeroina.
-     * 
+     *
      * @param merkkijono Merkkijono, joka halutaan muuntaa
-     * 
-     * @return  ASCII numero
+     * @return ASCII numero
      */
     public String merkkiToASCII(String merkkijono) {
         String ascii = "";
@@ -23,11 +23,10 @@ public class ASCIIMuuntaja {
     }
 
     /**
-     * Metodi muuntaa ASCII numeron merkkijonoksi. Jos numero on virheellinen, 
+     * Metodi muuntaa ASCII numeron merkkijonoksi. Jos numero on virheellinen,
      * metodi palauttaa virheilmoituksen.
-     * 
+     *
      * @param ascii Muunnettava ASCII numero
-     * 
      * @return numero muunnettu merkkijonoksi
      */
     public String ASCIIToMerkki(String ascii) {
@@ -45,18 +44,18 @@ public class ASCIIMuuntaja {
                 return "Virhe: virheellinen ASCII";
             }
             char toka = ascii.charAt(i);
-            int numero = Integer.parseInt("" + eka + toka);
-            if ((numero >= 48 && numero <= 57)
-                    || (numero >= 65 && numero <= 90)
-                    || (numero >= 97 && numero <= 99)) {
-                sana += Character.toString((char) numero);
+            int asciiNumero = Integer.parseInt("" + eka + toka);
+            if ((asciiNumero >= 48 && asciiNumero <= 57)
+                    || (asciiNumero >= 65 && asciiNumero <= 90)
+                    || (asciiNumero >= 97 && asciiNumero <= 99)) {
+                sana += Character.toString((char) asciiNumero);
             } else if (i == ascii.length() - 1) {
                 return "Virhe: virheellinen ASCII";
-            } else if (numero >= 10 && numero <= 12) {
+            } else if (asciiNumero >= 10 && asciiNumero <= 12) {
                 i++;
                 char kolmas = ascii.charAt(i);
-                numero = Integer.parseInt("" + eka + toka + kolmas);
-                sana += Character.toString((char) numero);
+                asciiNumero = Integer.parseInt("" + eka + toka + kolmas);
+                sana += Character.toString((char) asciiNumero);
             }
         }
         return sana;

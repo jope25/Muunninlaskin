@@ -3,13 +3,12 @@
  */
 package fi.jope.logiikka;
 
-public class Binaarimuunnin {
+public class Binaarimuunnin extends Muunnin {
 
     /**
-     * Metodi muuntaa luokana arvon binäärimuotoon.
+     * Metodi muuntaa annetun arvon binäärimuotoon.
      *
      * @param arvo muunnettava desimaaliluku
-     *
      * @return muunnettu luku kaksikantaisena
      */
     public String desimaalistaBinaariin(long arvo) {
@@ -17,11 +16,10 @@ public class Binaarimuunnin {
     }
 
     /**
-     * Metodi muuntaa sille annetun string-muotoisen binääriluvun desimaali
-     * muotoon ja asettaa sen attribuutin arvoksi.
+     * Metodi muuntaa sille annetun string-muotoisen binääriluvun ja palauttaa 
+     * sen desimaalimuotoisena.
      *
-     * @param binaari String muotoinen binääriluku, joka halutaan muuntaa
-     * 
+     * @param binaari String-muotoinen binääriluku, joka halutaan muuntaa
      * @return luku muunnettuna
      */
     public long binaaristaDesimaali(String binaari) {
@@ -32,30 +30,12 @@ public class Binaarimuunnin {
      * Metodi tarkistaa onko annettu String-muotoinen luku binääriluku.
      *
      * @param binaari Luku, joka halutaan tarkistaa
-     * 
      * @return false jos luku ei ole binääriluku, true jos se on
      */
     public boolean tarkistaBinaari(String binaari) {
         for (int i = 0; i < binaari.length(); i++) {
             char c = binaari.charAt(i);
             if (c != '1' && c != '0') {
-                return false;
-            }
-        }
-        return true;
-    }
-   
-    /**
-     * Metodi tarkistaa onko annettu String-muotoinen luku desimaaliluku.
-     *
-     * @param desimaali Luku, joka halutaan tarkistaa
-     * 
-     * @return false jos luku ei ole desimaaliluku, true jos se on
-     */
-    public boolean tarkistaDesimaali(String desimaali) {
-        for (int i = 0; i < desimaali.length(); i++) {
-            char c = desimaali.charAt(i);
-            if (c < 48 || c > 57) {
                 return false;
             }
         }
