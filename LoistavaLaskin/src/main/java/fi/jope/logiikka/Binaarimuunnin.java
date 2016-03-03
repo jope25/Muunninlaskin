@@ -5,7 +5,7 @@ package fi.jope.logiikka;
 
 public class Binaarimuunnin {
 
-    private int arvo;
+    private long arvo;
 
     public Binaarimuunnin() {
         this.arvo = 0;
@@ -20,17 +20,19 @@ public class Binaarimuunnin {
             return;
         } else if (arvo > 1) {
             while (arvo > 0) {
-                int jaannos = arvo % 2;
+                long jaannos = arvo % 2;
                 binaari = jaannos + binaari;
                 arvo /= 2;
             }
-            arvo = Integer.parseInt(binaari);
+            arvo = Long.parseLong(binaari);
         }
     }
 
     /**
      * Metodi muuntaa sille annetun string-muotoisen binääriluvun desimaali
      * muotoon ja asettaa sen attribuutin arvoksi.
+     * 
+     * @param binaari String muotoinen binääriluku, joka halutaan muuntaa.
      */
     public void binaaristaDesimaali(String binaari) {
         if (tarkistaBinaari(binaari)) {
@@ -59,11 +61,11 @@ public class Binaarimuunnin {
         return true;
     }
 
-    public int getArvo() {
+    public long getArvo() {
         return arvo;
     }
 
-    public void setArvo(int luku) {
+    public void setArvo(long luku) {
         arvo = luku;
     }
 }

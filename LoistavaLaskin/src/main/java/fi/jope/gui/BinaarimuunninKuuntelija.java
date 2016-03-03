@@ -62,7 +62,7 @@ public class BinaarimuunninKuuntelija implements ActionListener {
                 bm.setArvo(0);
                 break;
             case "dec -> bin":
-                bm.setArvo(Integer.parseInt(kentanLuku));
+                bm.setArvo(Long.parseLong(kentanLuku));
                 bm.desimaalistaBinaariin();
                 tyhjennaKentta();
                 asetaTeksti("" + bm.getArvo());
@@ -77,7 +77,7 @@ public class BinaarimuunninKuuntelija implements ActionListener {
                 }
                 break;
             default:
-                bm.setArvo(Integer.parseInt(kentanLuku));
+                bm.setArvo(Long.parseLong(kentanLuku));
                 tyhjennaKentta();
                 break;
         }
