@@ -16,7 +16,7 @@ public class Binaarimuunnin extends Muunnin {
     }
 
     /**
-     * Metodi muuntaa sille annetun string-muotoisen binääriluvun ja palauttaa 
+     * Metodi muuntaa sille annetun string-muotoisen binääriluvun ja palauttaa
      * sen desimaalimuotoisena.
      *
      * @param binaari String-muotoinen binääriluku, joka halutaan muuntaa
@@ -33,6 +33,9 @@ public class Binaarimuunnin extends Muunnin {
      * @return false jos luku ei ole binääriluku, true jos se on
      */
     public boolean tarkistaBinaari(String binaari) {
+        if (binaari.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < binaari.length(); i++) {
             char c = binaari.charAt(i);
             if (c != '1' && c != '0') {

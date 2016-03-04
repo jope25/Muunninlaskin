@@ -1,6 +1,9 @@
+/**
+ * Luokka muuntaa saadun ASCII-luvun merkkijonoksi tai toisinpäin.
+ */
 package fi.jope.logiikka;
 
-public class ASCIIMuuntaja {
+public class ASCIIMuuntaja extends Muunnin {
 
     /**
      * Metodi muuntaa annettavan merkkijonon ASCII numeroina.
@@ -9,6 +12,9 @@ public class ASCIIMuuntaja {
      * @return ASCII numero
      */
     public String merkkiToASCII(String merkkijono) {
+        if (!tarkistaMerkkijono(merkkijono)) {
+            return "Virhe: virheellinen merkkijono";
+        }
         String ascii = "";
         for (int i = 0; i < merkkijono.length(); i++) {
             char c = merkkijono.charAt(i);
@@ -29,48 +35,46 @@ public class ASCIIMuuntaja {
      * @param ascii Muunnettava ASCII numero
      * @return numero muunnettu merkkijonoksi
      */
-    public String ASCIIToMerkki(String ascii) {
+    public String asciiToMerkki(String ascii) {
         String sana = "";
-        if (!tarkistaASCII(ascii)) {
+        int pituus = ascii.length();
+        if (!tarkistaDesimaali(ascii)) {
             return "Virhe: virheellinen ASCII";
         }
-        for (int i = 0; i < ascii.length(); i++) {
+        for (int i = 0; i < pituus; i++) {
             char eka = ascii.charAt(i);
             if (eka == '0') {
                 return "Virhe: ethän laita turhia etunollia";
             }
             i++;
-            if (i == ascii.length()) {
+            if (i == pituus) {
                 return "Virhe: virheellinen ASCII";
             }
             char toka = ascii.charAt(i);
             int asciiNumero = Integer.parseInt("" + eka + toka);
-            if ((asciiNumero >= 48 && asciiNumero <= 57)
-                    || (asciiNumero >= 65 && asciiNumero <= 90)
-                    || (asciiNumero >= 97 && asciiNumero <= 99)) {
+
+            if (asciiNumero >= 32 && asciiNumero <= 126) {
                 sana += Character.toString((char) asciiNumero);
-            } else if (i == ascii.length() - 1) {
+            } else if (i == pituus - 1) {
                 return "Virhe: virheellinen ASCII";
             } else if (asciiNumero >= 10 && asciiNumero <= 12) {
                 i++;
                 char kolmas = ascii.charAt(i);
                 asciiNumero = Integer.parseInt("" + eka + toka + kolmas);
-                sana += Character.toString((char) asciiNumero);
+                if (asciiNumero <= 126) {
+                    sana += Character.toString((char) asciiNumero);
+                } else {
+                    return "Virhe: virheellinen ASCII (ei ole printattava)";
+                }
             }
         }
         return sana;
     }
 
-    private boolean tarkistaASCII(String ascii) {
-        for (int i = 0; i < ascii.length(); i++) {
-            char c = ascii.charAt(i);
-            boolean b = false;
-            for (int j = 48; j <= 57; j++) {
-                if (c == j) {
-                    b = true;
-                }
-            }
-            if (!b) {
+    private boolean tarkistaMerkkijono(String merkkijono) {
+        for (int i = 0; i < merkkijono.length(); i++) {
+            char c = merkkijono.charAt(i);
+            if (c < 32 || c > 126) {
                 return false;
             }
         }

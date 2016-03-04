@@ -7,6 +7,9 @@ public class Laskin {
 
     private double arvo;
 
+    /**
+     * Luodaan uusi Laskin ja asetetaan sen arvoksi 0.
+     */
     public Laskin() {
         this.arvo = 0;
     }

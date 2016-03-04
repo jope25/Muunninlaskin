@@ -33,11 +33,14 @@ public class BinaariMuunninTest {
     public void tarkistaBinaariMetodiToimii() {
         assertTrue(bm.tarkistaBinaari("11001110001111"));
         assertTrue(!bm.tarkistaBinaari("110011100081111"));
+        assertTrue(!bm.tarkistaBinaari("23456789"));
     }
     
     @Test
     public void tarkistaDesimaaliMetodiToimii() {
         assertTrue(bm.tarkistaDesimaali("123456789"));
         assertTrue(!bm.tarkistaDesimaali("1234785a78"));
+        assertTrue(!bm.tarkistaDesimaali("/"));
+        assertTrue(!bm.tarkistaDesimaali(":"));
     }
 }

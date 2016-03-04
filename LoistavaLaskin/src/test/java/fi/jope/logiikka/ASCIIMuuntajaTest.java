@@ -21,15 +21,15 @@ public class ASCIIMuuntajaTest {
     
     @Test
     public void ASCIIToMerkkiToimii() {
-        assertEquals("ASCII", a.ASCIIToMerkki("6583677373"));
-        assertEquals("ascii", a.ASCIIToMerkki("9711599105105"));
+        assertEquals("ASCII", a.asciiToMerkki("6583677373"));
+        assertEquals("ascii", a.asciiToMerkki("9711599105105"));
     }
     
     @Test
     public void ASCIIToMerkkiHuomaaVirheellisenASCIIn() {
-        assertEquals("Virhe: virheellinen ASCII", a.ASCIIToMerkki("82846662a4"));
-        assertEquals("Virhe: ethän laita turhia etunollia", a.ASCIIToMerkki("097115099105105"));
-        assertEquals("Virhe: virheellinen ASCII", a.ASCIIToMerkki("971159910510"));
-        assertEquals("Virhe: virheellinen ASCII", a.ASCIIToMerkki("658367737"));
+        assertEquals("Virhe: virheellinen ASCII", a.asciiToMerkki("82846662a4"));
+        assertEquals("Virhe: ethän laita turhia etunollia", a.asciiToMerkki("097115099105105"));
+        assertEquals("Virhe: virheellinen ASCII", a.asciiToMerkki("971159910510"));
+        assertEquals("Virhe: virheellinen ASCII", a.asciiToMerkki("658367737"));
     }
 }

@@ -15,4 +15,4 @@ Päivä | Tunnit | Kuvaus
 25.02. | 5 | Koodausta
 26.02. | 4 | Koodausta ja dediksen asiat
 02.03. | 2 | koodausta
-03.03. | 2 | koodausta
+03.03. | 3 | koodausta

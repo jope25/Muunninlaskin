@@ -1,14 +1,13 @@
 /**
  * Luokka muuntaa saadun desimaali- tai heksdesimaaliluvun toiseen muotoon.
  */
-
 package fi.jope.logiikka;
 
 public class Heksadesimaalimuunnin extends Muunnin {
 
     /**
-     * Metodi muuntaa sille annetun string-muotoisen heksadesimaaliluvun ja palauttaa 
-     * sen desimaalimuotoisena.
+     * Metodi muuntaa sille annetun string-muotoisen heksadesimaaliluvun ja
+     * palauttaa sen desimaalimuotoisena.
      *
      * @param hd String-muotoinen heksadesimaali, joka halutaan muuntaa
      * @return luku muunnettuna
@@ -26,7 +25,7 @@ public class Heksadesimaalimuunnin extends Muunnin {
     public String desimaalistaHeksadesimaali(long desimaali) {
         return Long.toHexString(desimaali);
     }
-    
+
     /**
      * Metodi tarkistaa onko annettu String-muotoinen luku heksadesimaali.
      *
@@ -34,6 +33,9 @@ public class Heksadesimaalimuunnin extends Muunnin {
      * @return false jos luku ei ole heksadesimaali, true jos se on
      */
     public boolean tarkistaHeksa(String hd) {
+        if (hd.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < hd.length(); i++) {
             char c = hd.charAt(i);
             if (c < 48 || c > 102 || (c < 97 && c > 57)) {

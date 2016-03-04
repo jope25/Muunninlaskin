@@ -13,6 +13,9 @@ public abstract class Muunnin {
      * @return false jos luku ei ole desimaaliluku, true jos se on
      */
     public boolean tarkistaDesimaali(String desimaali) {
+        if (desimaali.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < desimaali.length(); i++) {
             char c = desimaali.charAt(i);
             if (c < 48 || c > 57) {

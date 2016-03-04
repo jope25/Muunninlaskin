@@ -26,9 +26,10 @@ public class VaikeampiLaskuTest {
     public void potenssiToimii() {
         l.potenssi(2);
         desimaali.potenssi(0.5);
-
+        nolla.potenssi(1);
         assertEquals(64, l.getArvo(), 0);
         assertEquals(3.16, desimaali.getArvo(), 0.01);
+        assertEquals(0, nolla.getArvo(), 0);
     }
 
     @Test

@@ -16,3 +16,4 @@ Päivä | Tunnit | Kuvaus
 26.02. | 4 | Koodausta ja dediksen asiat
 02.03. | 2 | koodausta
 03.03. | 3 | koodausta
+04.03. | 9 | loppupalautus

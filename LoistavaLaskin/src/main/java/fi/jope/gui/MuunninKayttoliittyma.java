@@ -1,14 +1,14 @@
 /**
- * Luokka luo laskin-toiminnon käyttöliittymän.
+ * Luokka luo binäärimuuntimen käyttöliittymän.
  */
 package fi.jope.gui;
 
-import fi.jope.nappaimet.LaskinNappaimet;
-import fi.jope.kuuntelija.LaskinKuuntelija;
+import fi.jope.nappaimet.MuunninNappaimet;
+import fi.jope.kuuntelija.MuunninKuuntelija;
 import java.awt.*;
 import javax.swing.*;
 
-public class LaskinKayttoliittyma implements Runnable {
+public class MuunninKayttoliittyma implements Runnable {
 
     private JFrame frame;
 
@@ -20,8 +20,8 @@ public class LaskinKayttoliittyma implements Runnable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        this.frame = new JFrame("Laskin");
-        frame.setPreferredSize(new Dimension(375, 400));
+        this.frame = new JFrame("Lukumuuntaja");
+        frame.setPreferredSize(new Dimension(450, 400));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
@@ -31,22 +31,21 @@ public class LaskinKayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
         JTextField kentta = new JTextField("");
-        kentta.setPreferredSize(new Dimension(375, 50));
+        kentta.setPreferredSize(new Dimension(450, 50));
         kentta.setEnabled(false);
         kentta.setDisabledTextColor(Color.BLACK);
 
-        LaskinNappaimet ln = new LaskinNappaimet();
-        LaskinKuuntelija lk = new LaskinKuuntelija(ln.getNappaimet(), ln.getToiminnot(),
-                kentta, ln.getPiste(), ln.getNegatiivinen());
+        MuunninNappaimet mn = new MuunninNappaimet();
+        MuunninKuuntelija mk = new MuunninKuuntelija(kentta, mn.getToiminnot());
 
-        lk.napitOnOff(false);
+        mk.napitOnOff(false);
 
-        for (JButton nappi : ln.getNappaimet()) {
-            nappi.addActionListener(lk);
+        for (JButton nappi : mn.getNappaimet()) {
+            nappi.addActionListener(mk);
         }
 
         container.setLayout(new BorderLayout());
         container.add(kentta, BorderLayout.NORTH);
-        container.add(ln);
+        container.add(mn);
     }
 }

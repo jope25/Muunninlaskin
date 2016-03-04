@@ -29,7 +29,10 @@ public class HeksadesimaalimuunninTest {
     
     @Test
     public void tarkistaHeksaToimii() {
-        assertTrue(hdm.tarkistaHeksa("123456789abcdef"));
-        assertTrue(!hdm.tarkistaHeksa("176gcbd"));
+        assertTrue(hdm.tarkistaHeksa("123456789abcdef"));   
+        assertTrue(!hdm.tarkistaHeksa("/"));
+        assertTrue(!hdm.tarkistaHeksa(":"));
+        assertTrue(!hdm.tarkistaHeksa("{"));
+        assertTrue(!hdm.tarkistaHeksa("_"));
     }
 }
