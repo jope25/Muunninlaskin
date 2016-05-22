@@ -1,7 +1,7 @@
 /**
  * Käynnistää ohjelman ja valintaikkunan.
  */
-package fi.jope.loistavalaskin;
+package fi.jope.muunninlaskin;
 
 import fi.jope.gui.Valintaikkuna;
 import javax.swing.SwingUtilities;

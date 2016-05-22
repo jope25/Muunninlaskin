@@ -53,12 +53,12 @@ public class PerusLaskuTest {
         assertEquals(1.33, desimaali.getArvo(), 0.01);
     }
 
-    @Test
-    public void nollallaEiVoiJakaa() {
-        l.jako(0);
-
-        assertEquals(5, l.getArvo(), 0);
-    }
+//    @Test
+//    public void nollallaEiVoiJakaa() {
+//        l.jako(0);
+//
+//        assertEquals(5, l.getArvo(), 0);
+//    }
 
     @Test
     public void miinusLaskutToimii() {

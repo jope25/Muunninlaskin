@@ -1,4 +1,4 @@
-# loistavaLaskin
+# Muunninlaskin
 Graafinen laskin, josta löytyy myös käpistelijöille suunnattua toiminallisuutta.
 
 ##Dokumentointi

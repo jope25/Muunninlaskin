@@ -56,8 +56,6 @@ public class LaskinKuuntelija extends Kuuntelija implements ActionListener {
     }
 
     private void toteutaLaskutoiminto(String toiminto, double arvo) {
-        String virheIlmoitus = "";
-
         switch (toiminto) {
             case "+":
                 laskin.summa(arvo);
@@ -69,16 +67,9 @@ public class LaskinKuuntelija extends Kuuntelija implements ActionListener {
                 laskin.kerto(arvo);
                 break;
             case "/":
-                if (arvo == 0) {
-                    virheIlmoitus = "Virhe: nollalla jako";
-                } else {
-                    laskin.jako(arvo);
-                }
+                laskin.jako(arvo);
                 break;
             case "x^y":
-                if (laskin.getArvo() == 0) {
-                    virheIlmoitus = "Virhe: nolla kantalukuna";
-                }
                 laskin.potenssi(arvo);
                 break;
             case "y√x":
@@ -88,99 +79,95 @@ public class LaskinKuuntelija extends Kuuntelija implements ActionListener {
                 laskin.logaritmi(arvo);
                 break;
             case "nCr":
-                laskin.binomikerroin(arvo);
-                break;
-            default:
+                if (arvo < 0 || laskin.getArvo() < 0 || laskin.getArvo() % 1 != 0 
+                        || arvo % 1 != 0) {
+                    asetaTeksti(kentta, "Virhe", true);
+                    return;
+                } else {
+                    laskin.binomikerroin(arvo);
+                }
                 break;
         }
-        if (!virheIlmoitus.equals("")) {
-            asetaTeksti(kentta, virheIlmoitus, true);
-        } else {
-            asetaTeksti(kentta, "" + laskin.getArvo(), true);
-
-        }
+        asetaTeksti(kentta, "" + laskin.getArvo(), true);
         komento = "";
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        try {
-            double kentanLuku;
-            String kentanTeksti = kentta.getText();
+        double kentanLuku = 0;
+        String kentanTeksti = kentta.getText();
+        if (kentanTeksti.equals("Virhe") || kentanTeksti.equals("NaN")
+                || kentanTeksti.equals("Infinity")) {
+            tyhjennaKentta(kentta);
+        } else if (!kentanTeksti.isEmpty() && !kentanTeksti.equals("-")
+                && !kentanTeksti.equals(".")) {
+            kentanLuku = Double.parseDouble(kentanTeksti);
+        }
 
-            if (kentanTeksti.contains("Virhe")) {
-                kentanLuku = 0;
+        JButton nappi = (JButton) ae.getSource();
+        String napinTeksti = nappi.getText();
+
+        switch (napinTeksti) {
+            case "0":
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+            case "7":
+            case "8":
+            case "9":
+                asetaTeksti(kentta, napinTeksti, false);
+                napitOnOff(true);
+                break;
+            case ".":
+                asetaTeksti(kentta, napinTeksti, false);
+                delPaalle();
+                break;
+            case "(-)":
+                asetaTeksti(kentta, "-", false);
+                delPaalle();
+                break;
+            case "=":
+                toteutaLaskutoiminto(komento, kentanLuku);
+                break;
+            case "Clear":
                 tyhjennaKentta(kentta);
-            } else if (kentanTeksti.equals("-") || kentanTeksti.equals(".")) {
-                kentanLuku = 0;
-            } else if (!kentanTeksti.isEmpty()) {
-                kentanLuku = Double.parseDouble(kentanTeksti);
-            } else {
-                kentanLuku = Double.parseDouble(0 + kentanTeksti);
-            }
-
-            JButton nappi = (JButton) ae.getSource();
-            String napinTeksti = nappi.getText();
-
-            switch (napinTeksti) {
-                case "0":
-                case "1":
-                case "2":
-                case "3":
-                case "4":
-                case "5":
-                case "6":
-                case "7":
-                case "8":
-                case "9":
-                    asetaTeksti(kentta, napinTeksti, false);
-                    napitOnOff(true);
-                    break;
-                case ".":
-                    asetaTeksti(kentta, napinTeksti, false);
-                    delPaalle();
-                    break;
-                case "(-)":
-                    asetaTeksti(kentta, "-", false);
-                    delPaalle();
-                    break;
-                case "=":
-                    toteutaLaskutoiminto(komento, kentanLuku);
-                    break;
-                case "Clear":
-                    tyhjennaKentta(kentta);
-                    laskin.setArvo(0);
+                laskin.setArvo(0);
+                napitOnOff(false);
+                komento = "";
+                break;
+            case "Del":
+                asetaTeksti(kentta, kentanTeksti.substring(0, kentanTeksti.length() - 1), true);
+                if (kentta.getText().isEmpty()) {
                     napitOnOff(false);
-                    break;
-                case "Del":
-                    asetaTeksti(kentta, kentanTeksti.substring(0, kentanTeksti.length() - 1), true);
-                    if (kentta.getText().isEmpty()) {
-                        napitOnOff(false);
-                    }
-                    break;
-                default:
-                    if (!komento.isEmpty()) {
-                        asetaTeksti(kentta, "Virhe", true);
-                    } else {
-                        komento = napinTeksti;
-                        laskin.setArvo(kentanLuku);
-                        tyhjennaKentta(kentta);
-                    }
-                    break;
-            }
-            if (kentta.getText().contains(".")) {
-                piste.setEnabled(false);
-            } else {
-                piste.setEnabled(true);
-            }
-
-            if (kentta.getText().isEmpty()) {
-                negatiivinen.setEnabled(true);
-            } else {
-                negatiivinen.setEnabled(false);
-            }
-        } catch (Exception e) {
-            asetaTeksti(kentta, "Virhe: syöte/tulos liian suuri", true);
+                }
+                break;
+            default:
+                if (!komento.isEmpty()) {
+                    asetaTeksti(kentta, "Virhe", true);
+                } else {
+                    komento = napinTeksti;
+                    laskin.setArvo(kentanLuku);
+                    tyhjennaKentta(kentta);
+                }
+                break;
+        }
+        if (kentta.getText().contains(".")) {
+            piste.setEnabled(false);
+        } else {
+            piste.setEnabled(true);
+        }
+        if (kentta.getText().isEmpty()) {
+            negatiivinen.setEnabled(true);
+        } else {
+            negatiivinen.setEnabled(false);
+        }
+        if (kentta.getText().equals("Virhe")) {
+            komento = "";
+            napitOnOff(false);
+            negatiivinen.setEnabled(true);
         }
     }
 }

@@ -47,9 +47,8 @@ public class Laskin {
      * @param luku Luku, jolla jaetaan
      */
     public void jako(double luku) {
-        if (luku != 0) {
-            arvo /= luku;
-        }
+        arvo /= luku;
+
     }
 
     /**
@@ -58,9 +57,8 @@ public class Laskin {
      * @param monesko Annettava eksponentti
      */
     public void potenssi(double monesko) {
-        if (arvo != 0 && monesko > 0) {
-            arvo = Math.pow(arvo, monesko);
-        }
+        arvo = Math.pow(arvo, monesko);
+
     }
 
     /**
@@ -69,11 +67,6 @@ public class Laskin {
      * @param juuri Monesko juuri
      */
     public void juuri(double juuri) {
-        if (arvo == 0 && juuri <= 0) {
-            return;
-        } else if (arvo < 0 || juuri == 0) {
-            return;
-        }
         arvo = Math.pow(arvo, 1.0 / juuri);
     }
 
@@ -83,9 +76,8 @@ public class Laskin {
      * @param kanta Logaritmille annettava kanta
      */
     public void logaritmi(double kanta) {
-        if (arvo > 0 && kanta != 1 && kanta > 0) {
-            arvo = Math.log10(arvo) / Math.log10(kanta);
-        }
+        arvo = Math.log10(arvo) / Math.log10(kanta);
+
     }
 
     /**
