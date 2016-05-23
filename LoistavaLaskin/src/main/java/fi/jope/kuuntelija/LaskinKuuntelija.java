@@ -79,7 +79,7 @@ public class LaskinKuuntelija extends Kuuntelija implements ActionListener {
                 laskin.logaritmi(arvo);
                 break;
             case "nCr":
-                if (arvo < 0 || laskin.getArvo() < 0 || laskin.getArvo() % 1 != 0 
+                if (arvo < 0 || laskin.getArvo() < 0 || laskin.getArvo() % 1 != 0
                         || arvo % 1 != 0) {
                     asetaTeksti(kentta, "Virhe", true);
                     return;
@@ -90,6 +90,24 @@ public class LaskinKuuntelija extends Kuuntelija implements ActionListener {
         }
         asetaTeksti(kentta, "" + laskin.getArvo(), true);
         komento = "";
+    }
+
+    private void jalkiTarkistukset() {
+        if (kentta.getText().contains(".")) {
+            piste.setEnabled(false);
+        } else {
+            piste.setEnabled(true);
+        }
+        if (kentta.getText().isEmpty()) {
+            negatiivinen.setEnabled(true);
+        } else {
+            negatiivinen.setEnabled(false);
+        }
+        if (kentta.getText().equals("Virhe")) {
+            komento = "";
+            napitOnOff(false);
+            negatiivinen.setEnabled(true);
+        }
     }
 
     @Override
@@ -154,20 +172,6 @@ public class LaskinKuuntelija extends Kuuntelija implements ActionListener {
                 }
                 break;
         }
-        if (kentta.getText().contains(".")) {
-            piste.setEnabled(false);
-        } else {
-            piste.setEnabled(true);
-        }
-        if (kentta.getText().isEmpty()) {
-            negatiivinen.setEnabled(true);
-        } else {
-            negatiivinen.setEnabled(false);
-        }
-        if (kentta.getText().equals("Virhe")) {
-            komento = "";
-            napitOnOff(false);
-            negatiivinen.setEnabled(true);
-        }
+        jalkiTarkistukset();
     }
 }

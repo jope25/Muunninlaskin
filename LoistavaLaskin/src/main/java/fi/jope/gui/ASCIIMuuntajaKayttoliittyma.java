@@ -21,7 +21,6 @@ public class ASCIIMuuntajaKayttoliittyma implements Runnable {
         }
         this.frame = new JFrame("ASCII-muuntaja");
         frame.setPreferredSize(new Dimension(350, 125));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
         frame.setLocationRelativeTo(null);

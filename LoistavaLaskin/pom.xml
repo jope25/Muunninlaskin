@@ -79,7 +79,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>fi.jope.loistavalaskin.Main</mainClass>
+                                    <mainClass>fi.jope.muunninlaskin.Main</mainClass>
                                     <!-- mainClass on muotoa "fi.omanimi.superprojekti.Main" -->
                                 </transformer>
                             </transformers>

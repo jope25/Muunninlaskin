@@ -121,8 +121,9 @@ public class MuunninKuuntelija extends Kuuntelija implements ActionListener {
                         asetaTeksti(kentta, "" + l, true);
                     }
                     break;
-                default:
-                    break;
+            }
+            if (kentta.getText().contains("Virhe")) {
+                napitOnOff(false);
             }
         } catch (Exception e) {
             asetaTeksti(kentta, "Virhe: liian pitkä syöte/tulos", true);

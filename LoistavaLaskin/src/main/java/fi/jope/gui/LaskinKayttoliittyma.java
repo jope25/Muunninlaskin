@@ -22,7 +22,6 @@ public class LaskinKayttoliittyma implements Runnable {
         }
         this.frame = new JFrame("Laskin");
         frame.setPreferredSize(new Dimension(375, 400));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(frame.getContentPane());
         frame.pack();
         frame.setLocationRelativeTo(null);
